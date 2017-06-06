@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
 namespace vega.Models
 {
     public class Make
@@ -7,5 +10,11 @@ namespace vega.Models
         public string Name { get; set;}
 
         public string CountryOfOrigin { get; set;}
+
+        public ICollection<Model> Models { get; set; }
+
+        public Make () {
+            Models = new Collection<Model>();
+        }
     }
 }
