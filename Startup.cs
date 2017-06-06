@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
 using vega.Persistence;
 
 namespace WebApplicationBasic
@@ -33,7 +32,7 @@ namespace WebApplicationBasic
         {
             // Add framework services.
             services.AddMvc();
-            services.AddDbContext<VegaDbContext>(options => options.UseSqlServer("...")); 
+            services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"))); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
