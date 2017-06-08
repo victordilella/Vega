@@ -23,12 +23,16 @@ namespace Vega.Migrations
             migrationBuilder.Sql("INSERT INTO Models (Name, MakeId, Year) Values ('400E', (SELECT Id FROM Makes WHERE Name = 'Mercedes-Benz'), '2017')");
             migrationBuilder.Sql("INSERT INTO Models (Name, MakeId, Year) Values ('SLK280', (SELECT Id FROM Makes WHERE Name = 'Mercedes-Benz'), '2017')");
             migrationBuilder.Sql("INSERT INTO Models (Name, MakeId, Year) Values ('C350', (SELECT Id FROM Makes WHERE Name = 'Mercedes-Benz'), '2017')");
+
+            migrationBuilder.Sql("INSERT INTO Features (Name) Values ('Turbo Engine')");
+            migrationBuilder.Sql("INSERT INTO Features (Name) Values ('Phat Speakerz')");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql("DELETE FROM Makes WHERE Name IN ('Ford', 'Mazda', 'Mercedes-Benz')");
             migrationBuilder.Sql("DELETE FROM Models");
+            migrationBuilder.Sql("DELETE FROM Features");
         }
     }
 }
